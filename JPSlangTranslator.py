@@ -2,7 +2,7 @@ import tkinter as tk
 from ply import lex, yacc
 from  JPDictionary import japanese_to_english
 
-# Tokens
+#Tokens for the Japanese Grammar
 tokens = (
     'SUBJECT',
     'PARTICLE',
