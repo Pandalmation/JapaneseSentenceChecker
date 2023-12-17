@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import font
 from ply import lex, yacc
 from  JPDictionary import japanese_to_english
 
@@ -48,9 +49,6 @@ def p_sentence(p):
                 | SUBJECT BELONGING OBJECT END
                 | OBJECT PARTICLE ADJECTIVE END
                 | SUBJECT BELONGING OBJECT PARTICLE SUBJECT END '''
-    
-    #Displays the header for the parsed sentence in the result_text widget
-    result_text.insert(tk.END, "\nParsed sentence:\n")
     
     #Displays the Subject of the sentence
     result_text.insert(tk.END, f"Subject: {p[1]}")
@@ -138,23 +136,29 @@ def translate_input():
 
 #GUI using tkinter hehe
 root = tk.Tk()
-root.title("Japanese Slang Translator")
+root.title("Japanese Translator")
 root.configure(bg='#ffcccc')  
 
-input_label = tk.Label(root, text="Enter Japanese sentence:", bg='#ffcccc') 
+
+# Label for entering Japanese sentence
+input_label = tk.Label(root, height=2, width=50, text="Enter Japanese Sentence", bg='#ffcccc', fg='#571d3a')
 input_label.pack()
 
-input_entry = tk.Text(root, height=3, width=50)
-input_entry.pack()
+# Text widget for entering Japanese sentence
+input_entry = tk.Text(root, height=3, fg='#571d3a')
+input_entry.pack(padx=50)
 
-translate_button = tk.Button(root, text="Translate", command=translate_input, bg='#ff6666') 
-translate_button.pack()
+# Label for parsed sentence
+parsed_label = tk.Label(root, height=2, width=50, text="Parsed Sentence", bg='#ffcccc', fg='#571d3a')
+parsed_label.pack()
 
-result_label = tk.Label(root, text="Translation:", bg='#ffcccc') 
-result_label.pack()
+# Text widget for parsed sentence
+result_text = tk.Text(root, height=10, fg='#571d3a')
+result_text.pack(padx=50)
 
-result_text = tk.Text(root, height=10, width=50)
-result_text.pack()
+# Button for translation
+translate_button = tk.Button(root, text="Check", width=10, command=translate_input, bg='#571d3a', fg='#ffcccc')
+translate_button.pack(pady=10)
 
 root.mainloop()
 
