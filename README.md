@@ -1,3 +1,3 @@
-# JapaneseSlang
+# Japanese Sentence Checker
 - By: Tiffany and Jocelin ^w^
-We created a Japanese Slang Translator using ply for our Compilation Techniques Final Project! 
+We created a Japanese Sentence Checker using ply for our Compilation Techniques Final Project! 
